@@ -24,7 +24,7 @@ void main(){
 	
 	serverAddr.sin_family=AF_INET,
 	serverAddr.sin_port=htons(PORT);
-	serverAddr.sin_addr.s_addr=inet_addr("127.0.0.1");
+	serverAddr.sin_addr.s_addr=inet_addr("192.168.1.71");
 	
 	bind(sockfd,(struct sockaddr*)&serverAddr,sizeof(serverAddr));
 	printf("{+}Bind to the Port Number %d\n",4455);
@@ -36,7 +36,7 @@ void main(){
 	
 	newSocket=accept(sockfd,(struct sockaddr*)&newAddr,&addr_size);
 	
-	strcpy(buffer,"Hello\n");
+	strcpy(buffer,"Hello Am the Raspi\n");
 	send(newSocket,buffer,strlen(buffer),0);
 	printf("{+}Send the data to the Client\n");
 	printf("{+}Closing the Connection\n");
